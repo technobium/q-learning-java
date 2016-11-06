@@ -39,3 +39,6 @@ com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
 fabric.properties
+/q-learning-java.iws
+/q-learning-java.ipr
+/q-learning-java.iml

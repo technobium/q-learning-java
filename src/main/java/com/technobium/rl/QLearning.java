@@ -137,7 +137,12 @@ public class QLearning {
     }
 
     // Used for debug
-    public void printR(int[][] matrix) {
+    void printR(int[][] matrix) {
+        System.out.printf("%25s", "States: ");
+        for (int i = 0; i <= 8; i++) {
+            System.out.printf("%4s", i);
+        }
+        System.out.println();
 
         for (int i = 0; i < statesCount; i++) {
             System.out.print("Possible states from " + i + " :[");

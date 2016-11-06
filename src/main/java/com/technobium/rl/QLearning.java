@@ -4,7 +4,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Random;
 
 public class QLearning {
@@ -31,19 +30,6 @@ public class QLearning {
         ql.calculateQ();
         ql.printQ();
         ql.printPolicy();
-    }
-
-    // Used for debug
-    public static void printMatrix(int[][] matrix) {
-        Arrays.stream(matrix)
-                .forEach(
-                        (row) -> {
-                            System.out.print("[");
-                            Arrays.stream(row)
-                                    .forEach((el) -> System.out.printf("%4s", el));
-                            System.out.println("]");
-                        }
-                );
     }
 
     public void init() {
@@ -144,9 +130,21 @@ public class QLearning {
                     }
                 }
             }
-            printMatrix(R);
+            printR(R);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    // Used for debug
+    public void printR(int[][] matrix) {
+
+        for (int i = 0; i < statesCount; i++) {
+            System.out.print("Possible states from " + i + " :[");
+            for (int j = 0; j < statesCount; j++) {
+                System.out.printf("%4s", matrix[i][j]);
+            }
+            System.out.println("]");
         }
     }
 

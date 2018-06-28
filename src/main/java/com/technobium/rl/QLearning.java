@@ -200,7 +200,7 @@ public class QLearning {
 
     double maxQ(int nextState) {
         int[] actionsFromState = possibleActionsFromState(nextState);
-        double maxValue = Double.MIN_VALUE;
+        double maxValue = Double.NEGATIVE_INFINITY;
         for (int nextAction : actionsFromState) {
             double value = Q[nextState][nextAction];
 

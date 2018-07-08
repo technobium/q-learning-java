@@ -130,14 +130,14 @@ public class QLearning {
                     }
                 }
             }
-            initalizeQ();
+            initializeQ();
             printR(R);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
     //Set Q values to R values
-    void initiliazeQ()
+    void initializeQ()
     {
         for (int i = 0; i < statesCount; i++){
             for(int j = 0; j < statesCount; j++){

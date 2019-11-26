@@ -130,12 +130,21 @@ public class QLearning {
                     }
                 }
             }
+            initializeQ();
             printR(R);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
+    //Set Q values to R values
+    void initializeQ()
+    {
+        for (int i = 0; i < statesCount; i++){
+            for(int j = 0; j < statesCount; j++){
+                Q[i][j] = (double)R[i][j];
+            }
+        }
+    }
     // Used for debug
     void printR(int[][] matrix) {
         System.out.printf("%25s", "States: ");
@@ -200,7 +209,8 @@ public class QLearning {
 
     double maxQ(int nextState) {
         int[] actionsFromState = possibleActionsFromState(nextState);
-        double maxValue = Double.NEGATIVE_INFINITY;
+        //the learning rate and eagerness will keep the W value above the lowest reward
+        double maxValue = -10;
         for (int nextAction : actionsFromState) {
             double value = Q[nextState][nextAction];
 
